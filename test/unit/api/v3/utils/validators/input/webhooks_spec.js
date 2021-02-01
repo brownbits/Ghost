@@ -3,7 +3,7 @@ const _ = require('lodash');
 const should = require('should');
 const sinon = require('sinon');
 const Promise = require('bluebird');
-const validators = require('../../../../../../../core/server/api/canary/utils/validators');
+const validators = require('../../../../../../../core/server/api/v3/utils/validators');
 
 describe('Unit: v3/utils/validators/input/webhooks', function () {
     afterEach(function () {
@@ -12,7 +12,8 @@ describe('Unit: v3/utils/validators/input/webhooks', function () {
 
     describe('add', function () {
         const apiConfig = {
-            docName: 'webhooks'
+            docName: 'webhooks',
+            method: 'add'
         };
 
         describe('required fields', function () {
@@ -25,7 +26,7 @@ describe('Unit: v3/utils/validators/input/webhooks', function () {
                 return validators.input.webhooks.add(apiConfig, frame)
                     .then(Promise.reject)
                     .catch((err) => {
-                        (err instanceof errors.ValidationError).should.be.true();
+                        err.errorType.should.equal('ValidationError');
                     });
             });
 
@@ -40,7 +41,7 @@ describe('Unit: v3/utils/validators/input/webhooks', function () {
                 return validators.input.webhooks.add(apiConfig, frame)
                     .then(Promise.reject)
                     .catch((err) => {
-                        (err instanceof errors.ValidationError).should.be.true();
+                        err.errorType.should.equal('ValidationError');
                     });
             });
 
@@ -55,7 +56,7 @@ describe('Unit: v3/utils/validators/input/webhooks', function () {
                 return validators.input.webhooks.add(apiConfig, frame)
                     .then(Promise.reject)
                     .catch((err) => {
-                        (err instanceof errors.ValidationError).should.be.true();
+                        err.errorType.should.equal('ValidationError');
                     });
             });
 
@@ -71,7 +72,7 @@ describe('Unit: v3/utils/validators/input/webhooks', function () {
                 return validators.input.webhooks.add(apiConfig, frame)
                     .then(Promise.reject)
                     .catch((err) => {
-                        (err instanceof errors.ValidationError).should.be.true();
+                        err.errorType.should.equal('ValidationError');
                     });
             });
 
@@ -88,7 +89,7 @@ describe('Unit: v3/utils/validators/input/webhooks', function () {
                 return validators.input.webhooks.add(apiConfig, frame)
                     .then(Promise.reject)
                     .catch((err) => {
-                        (err instanceof errors.ValidationError).should.be.true();
+                        err.errorType.should.equal('ValidationError');
                     });
             });
 
@@ -176,7 +177,7 @@ describe('Unit: v3/utils/validators/input/webhooks', function () {
                         return validators.input.webhooks.add(apiConfig, frame)
                             .then(Promise.reject)
                             .catch((err) => {
-                                (err instanceof errors.ValidationError).should.be.true();
+                                err.errorType.should.equal('ValidationError');
                             });
                     });
 
@@ -188,7 +189,8 @@ describe('Unit: v3/utils/validators/input/webhooks', function () {
 
     describe('edit', function () {
         const apiConfig = {
-            docName: 'webhooks'
+            docName: 'webhooks',
+            method: 'edit'
         };
 
         describe('required fields', function () {
@@ -201,7 +203,7 @@ describe('Unit: v3/utils/validators/input/webhooks', function () {
                 return validators.input.webhooks.edit(apiConfig, frame)
                     .then(Promise.reject)
                     .catch((err) => {
-                        (err instanceof errors.ValidationError).should.be.true();
+                        err.errorType.should.equal('ValidationError');
                     });
             });
 
@@ -216,7 +218,7 @@ describe('Unit: v3/utils/validators/input/webhooks', function () {
                 return validators.input.webhooks.edit(apiConfig, frame)
                     .then(Promise.reject)
                     .catch((err) => {
-                        (err instanceof errors.ValidationError).should.be.true();
+                        err.errorType.should.equal('ValidationError');
                     });
             });
 
@@ -232,7 +234,7 @@ describe('Unit: v3/utils/validators/input/webhooks', function () {
                 return validators.input.webhooks.edit(apiConfig, frame)
                     .then(Promise.reject)
                     .catch((err) => {
-                        (err instanceof errors.ValidationError).should.be.true();
+                        err.errorType.should.equal('ValidationError');
                     });
             });
 
